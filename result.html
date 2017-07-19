@@ -1,0 +1,157 @@
+<!--The result page after the user enters a city-->
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta has-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Test</title>
+    <style type="text/css" media="screen">
+     * {
+       margin: 0; 
+       padding: 0;
+     }
+     /*sets banner properties*/
+     div#banner { 
+       position: absolute; 
+       top: 0; 
+       left: 0; 
+       background-color: #00673C; 
+       width: 100%; 
+     }
+     /*configures text on inside*/
+     div#banner-content { 
+       width: 550px; 
+       margin: 0 auto; 
+       padding: 70px; 
+     }
+     div#main-content { 
+       padding-top: 70px;
+    }
+    </style>
+</head>
+<!--Creates the banner for the page-->
+<body>
+  <div id="banner">
+    <div id="banner-content">
+     <center><font size="10" color="white" font-family = "Tw Cen MT"><a href = '/'></a>Tourist Express</font></center>
+    </div>
+  </div>
+  <br> <br> <br>
+  <div id="main-content">
+    <p></p>
+  </div>
+</body>
+<style type="text/css">
+    @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #666;
+}
+#pagewrap {
+  padding: 100px;
+  width: 960px;
+  margin: 20px auto;
+}
+
+header {
+  height: 100px;
+  padding: 0 15px;
+}
+
+#content {
+  width: 290px;
+  float: left;
+  padding: 5px 15px;
+}
+
+#middle {
+  width: 294px;
+  /* Account for margins + border values */
+  float: left;
+  padding: 5px 15px;
+  margin: 0px 5px 5px 5px;
+}
+
+#sidebar {
+  width: 270px;
+  padding: 5px 15px;
+  float: left;
+}
+
+footer {
+  clear: both;
+  padding: 0 15px;
+}
+
+
+@media screen and (max-width: 980px) {
+  #pagewrap {
+    width: 94%;
+  }
+  #content {
+    width: 41%;
+    padding: 1% 4%;
+  }
+  #middle {
+    width: 41%;
+    padding: 1% 4%;
+    margin: 0px 0px 5px 5px;
+    float: right;
+  }
+  #sidebar {
+    clear: both;
+    padding: 1% 4%;
+    width: auto;
+    float: none;
+  }
+  header,
+  footer {
+    padding: 1% 4%;
+  }
+}
+</style>
+<div id="pagewrap">
+
+	<header>
+		<center><h1>Your Destination Results</h1></center>
+	</header>
+		
+	<section id="content">
+		<center><h2>Hotels</h2></center><br>
+    {% for i in range(bound1) %}
+    Name: {{ hotelName[i] }} <br>
+    Phone #: {{ hotelPhone[i] }}<br>
+    Address: {{ hotelAdd[i] }} <br>
+    <br>
+    {% endfor %}
+    <br>
+		<br>
+	</section>
+	
+	<section id="middle">
+		<center><h2>Restaurants</h2></center><br>
+		{% for i in range(bound2) %}
+    Name: {{ resName[i] }} <br>
+    Phone #: {{ resPhone[i] }}<br>
+    Address: {{ resAdd[i] }} <br>
+    <br>
+    {% endfor %}
+	</section>
+
+	<aside id="sidebar">
+		<center><h2>Clubs</h2></center>
+		<br>
+    {% for i in range(bound3) %}
+    Name: {{ spaName[i] }} <br>
+    Phone #: {{ spaPhone[i] }}<br>
+    Address: {{ spaAdd[i] }} <br>
+    <br>
+    {% endfor %}
+  </aside>
+  
+  <footer>
+    <a href = '/'>Go back</a>
+    <p></p>
+  </footer>
+</div>
+</html>
